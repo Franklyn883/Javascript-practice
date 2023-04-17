@@ -1,0 +1,28 @@
+body{
+  background-color: grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container{
+  background-color:purple;
+  text-align: center;
+  display:inline-block;
+  position: absolute;
+  top: 20%;
+
+}
+
+h1{
+  padding:3rem;
+  font-size: 8rem;
+  color:white
+}
+@media only screen and (max-width: 600px) {
+
+  h1{
+    font-size:3rem;
+    padding: 1rem; 
+  }
+
+}
