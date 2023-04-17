@@ -196,26 +196,77 @@ const restaurant = {
  * We can use the || operator to return values that are not booleans, and also
  */
 // the || operator returns the first value that is a truthy value and if they are both falsy, it will return the other one
-console.log(23 || "Frank");
-console.log("" || 'Frank');
-console.log(false || 0)
-console.log(undefined || null);
-console.log(null || undefined);
-console.log(null || undefined || "" || "Frank" || true)
-//This can be used to avoid writing long if else statements.
-restaurant.numOfGuest = 23
+// console.log(23 || "Frank");
+// console.log("" || 'Frank');
+// console.log(false || 0)
+// console.log(undefined || null);
+// console.log(null || undefined);
+// console.log(null || undefined || "" || "Frank" || true)
+// //This can be used to avoid writing long if else statements.
+// restaurant.numOfGuest = 0
 
-const numOfGuest = restaurant.numOfGuest || 10//this works if the restaurant.numOfGuest is undefined then 10 will be assigned
-                                              //if it does exist then the value will be assigned
-//NOTE: If the restaurant.numOfGuest value is 0, then it will not work it will take the 10 over the 0 because its a falsy value
+// const numOfGuest = restaurant.numOfGuest || 10//this works if the restaurant.numOfGuest is undefined then 10 will be assigned
+//                                               //if it does exist then the value will be assigned
+// //NOTE: If the restaurant.numOfGuest value is 0, then it will not work it will take the 10 over the 0 because its a falsy value
 
-console.log(numOfGuest)
+// console.log(numOfGuest)
 
 //------------------THE && OPERATOR
-//It works exactly opposite of the || operator. It returns the falsy value and they are both true it returns the second value
-console.log("" && "James") 
-console.log(undefined && "James")
-console.log("" == false)
-//remember && will return false if one of the value is false. So it will return the falsy value
-console.log("James" && "Micaheal" && true && NaN && undefined)
-console.log(typeof(NaN))
+// //It works exactly opposite of the || operator. It returns the falsy value and they are both true it returns the second value
+// console.log("" && "James") 
+// console.log(undefined && "James")
+// console.log("" == false)
+// //remember && will return false if one of the value is false. So it will return the falsy value
+// console.log("James" && "Micaheal" && true && NaN && undefined)
+// console.log(typeof(NaN))
+// //another usecase is if you can you use it to check if a function exist
+// if(restaurant.orderPizza){
+//   restaurant.orderPizza("mushrooms", "pasta")
+// }
+// //we can do this using the && operator
+// restaurant.orderPizza && restaurant.orderPizza('pasta', "mushrooms")
+
+// /**
+//  * ------------ THE NULLISH COALESCING OPERATOR (??)-----
+//  * It works the same way as || operator only it doesn't return false for 0 and and empty strings only for null and undefined
+//  * 
+//  */
+// const correctNumOfGuest = restaurant.numOfGuest ?? 10
+// console.log(correctNumOfGuest)
+
+/**
+ * ---------------LOGICAL ASSIGNMENT OPERATOR -------------------
+ * It assign a value to a variable if the value is currently falsy
+ */
+//Example
+const rest1 ={
+  name:"life is good",
+  numGuest: 0
+}
+const rest2 = {
+  name:"Food is ready",
+  fonder:"Frank"
+}
+// rest1.numGuest = rest1.numGuest || 10
+// rest2.numGuest = rest2.numGuest || 10
+
+//Now we can do the same thing using  an OR Assignment  operator
+// rest1.numGuest ||= 10;
+// rest2.numGuest ||=10;
+// console.log(rest1.numGuest);
+// console.log(rest2.numGuest);
+//The above code works well but if the value of numGuest is zero it will return a falsy value, which will inturn affects
+//our operation to avoid this we use a  nullish coalescing assignment
+
+//-------------------NULLISH COALESCING ASSIGNMENT
+rest1.numGuest ??= 10;
+rest2.numGuest ??=10;
+console.log(rest1.numGuest);
+console.log(rest2.numGuest);
+
+//--------------------------- AND ASSIGNMENT
+
+rest1.fonder &&= "<Anonymous>"//It will return the first falsy value which is undefined since it doesn't exist
+rest2.fonder &&= "<Anonymous>"
+console.log(rest1.fonder)
+console.log(rest2.fonder)
