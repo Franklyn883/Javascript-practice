@@ -35,16 +35,18 @@ const restaurant = {
   order: function (staterIndex, mainIndex) {
     return [this.starterMenu[staterIndex], this.mainMenu[mainIndex]];
   },
-  orderDelivery: function({mainIndex,starterIndex,time, address}){
+  orderDelivery: function ({ mainIndex, starterIndex, time, address }) {
     console.log(`Order received:  ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]}
-    will be delivered to ${address} at ${time}`)
+    will be delivered to ${address} at ${time}`);
   },
-  orderPasta: function(ing1,ing2,ing3){
-    console.log(`Here's your delicious pasta with ${ing1}, ${ing2} and ${ing3}`)
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(
+      `Here's your delicious pasta with ${ing1}, ${ing2} and ${ing3}`
+    );
   },
-  orderPizza: function(mainIngred, ...otheringred){
-    console.log(`Here is your pizza order of: ${mainIngred}, ${otheringred} ` )
-  }
+  orderPizza: function (mainIngred, ...otheringred) {
+    console.log(`Here is your pizza order of: ${mainIngred}, ${otheringred} `);
+  },
 };
 // restaurant.orderDelivery({
 //   time : '22:30am',
@@ -213,7 +215,7 @@ const restaurant = {
 
 //------------------THE && OPERATOR
 // //It works exactly opposite of the || operator. It returns the falsy value and they are both true it returns the second value
-// console.log("" && "James") 
+// console.log("" && "James")
 // console.log(undefined && "James")
 // console.log("" == false)
 // //remember && will return false if one of the value is false. So it will return the falsy value
@@ -229,7 +231,7 @@ const restaurant = {
 // /**
 //  * ------------ THE NULLISH COALESCING OPERATOR (??)-----
 //  * It works the same way as || operator only it doesn't return false for 0 and and empty strings only for null and undefined
-//  * 
+//  *
 //  */
 // const correctNumOfGuest = restaurant.numOfGuest ?? 10
 // console.log(correctNumOfGuest)
@@ -239,14 +241,14 @@ const restaurant = {
  * It assign a value to a variable if the value is currently falsy
  */
 //Example
-const rest1 ={
-  name:"life is good",
-  numGuest: 0
-}
+const rest1 = {
+  name: "life is good",
+  numGuest: 0,
+};
 const rest2 = {
-  name:"Food is ready",
-  fonder:"Frank"
-}
+  name: "Food is ready",
+  fonder: "Frank",
+};
 // rest1.numGuest = rest1.numGuest || 10
 // rest2.numGuest = rest2.numGuest || 10
 
@@ -260,13 +262,13 @@ const rest2 = {
 
 //-------------------NULLISH COALESCING ASSIGNMENT
 rest1.numGuest ??= 10;
-rest2.numGuest ??=10;
+rest2.numGuest ??= 10;
 console.log(rest1.numGuest);
 console.log(rest2.numGuest);
 
 //--------------------------- AND ASSIGNMENT
 
-rest1.fonder &&= "<Anonymous>"//It will return the first falsy value which is undefined since it doesn't exist
-rest2.fonder &&= "<Anonymous>"
-console.log(rest1.fonder)
-console.log(rest2.fonder)
+rest1.fonder &&= "<Anonymous>"; //It will return the first falsy value which is undefined since it doesn't exist
+rest2.fonder &&= "<Anonymous>";
+console.log(rest1.fonder);
+console.log(rest2.fonder);
